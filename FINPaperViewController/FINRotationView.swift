@@ -65,7 +65,7 @@ class FINRotationFlowLayout: UICollectionViewFlowLayout {
                 let radian = fraction * 0.15
                 var t  = self.transformFromFraction(radian);
                 
-                //利用三角函数计算偏移高度
+                //利用三角函数计算偏移高度， a b c 为三角形的三条边
                 let computedRadian = fabs(radian)
                 let a = abs(computedOffset)
                 let c = a / cos(computedRadian)
