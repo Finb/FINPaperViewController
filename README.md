@@ -1,7 +1,9 @@
 # FINPaperViewController
-The project is still in progress
-The project is still in progress
-The project is still in progress
+####The project is still in progress
+
+####The project is still in progress
+
+####The project is still in progress
 
 This is a UIViewController that  provides functions similar to the "Edit Sections" on Facebook's paper app .
 
