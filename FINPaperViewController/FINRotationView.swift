@@ -9,7 +9,7 @@
 import UIKit
 
 class FINRotationFlowLayout: UICollectionViewFlowLayout {
-    private var collectionViewWidth:CGFloat { get{ return self.collectionView!.frame.width } }
+    private var collectionViewWidth:CGFloat { get{ return self.collectionView?.frame.width ?? 0 } }
     
     var dynamicAnimator:UIDynamicAnimator!
     override init() {
@@ -25,7 +25,9 @@ class FINRotationFlowLayout: UICollectionViewFlowLayout {
         self.minimumLineSpacing = 10;
         self.scrollDirection = .Horizontal;
         
-        self.itemSize = CGSizeMake(ceil(collectionViewWidth/2.4), ceil(collectionViewWidth/2.4/1.5))
+        let width = UIScreen.mainScreen().bounds.size.width
+        let height = UIScreen.mainScreen().bounds.size.height
+        self.itemSize = CGSizeMake(ceil(width/2.4), ceil(height/2.4/1.5))
 
         self.dynamicAnimator = UIDynamicAnimator(collectionViewLayout: self)
     }
@@ -99,7 +101,7 @@ class FINRotationFlowLayout: UICollectionViewFlowLayout {
             let item = item as! UIAttachmentBehavior
             let xDistanceFromTouch = fabs(touchLocation.x - item.anchorPoint.x)
             
-            let scrollResistance = xDistanceFromTouch / 15000
+            let scrollResistance = xDistanceFromTouch / 1500
             
             let itemAttr = item.items.first!
             var center = itemAttr.center
